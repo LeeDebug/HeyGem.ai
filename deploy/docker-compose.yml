@@ -6,7 +6,7 @@ services:
   heygem-tts:
     image: guiji2025/fish-speech-ziming
     container_name: heygem-tts
-    restart: always
+    restart: unless-stopped
     runtime: nvidia
     environment:
       - NVIDIA_VISIBLE_DEVICES=0
@@ -21,7 +21,7 @@ services:
   heygem-asr:
     image: guiji2025/fun-asr
     container_name: heygem-asr
-    restart: always
+    restart: unless-stopped
     runtime: nvidia
     privileged: true
     working_dir: /workspace/FunASR/runtime
@@ -40,7 +40,7 @@ services:
   heygem-gen-video:
     image: guiji2025/heygem.ai
     container_name: heygem-gen-video
-    restart: always
+    restart: unless-stopped
     runtime: nvidia
     privileged: true
     volumes:
